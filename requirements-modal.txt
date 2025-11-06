@@ -1,0 +1,2 @@
+# Requirements for running Modal locally
+modal>=0.63.0

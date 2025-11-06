@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  vqgan-clip:
+    build: .
+    image: vqgan-clip:latest
+    container_name: vqgan-clip
+    runtime: nvidia
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+    volumes:
+      - ./outputs:/app/outputs
+      - ./checkpoints:/app/checkpoints
+    command: ["-p", "A painting of an apple in a fruit bowl", "-o", "outputs/output.png", "-i", "500"]
