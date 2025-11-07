@@ -228,7 +228,7 @@ def generate_video_frames(
 @app.function(
     image=image,
     gpu="T4",
-    timeout=21600,  # 6 hours for loop generation (epochs take much longer)
+    timeout=43200,  # 12 hours for loop generation (epochs take much longer)
     volumes={"/checkpoints": models_volume},
 )
 def generate_loop_frames(
@@ -725,7 +725,7 @@ def main_loop(
 @app.function(
     image=image,
     gpu="T4",
-    timeout=21600,
+    timeout=43200,  # 12 hours for long jobs
     volumes={
         "/checkpoints": models_volume,
         "/outputs": outputs_volume,
